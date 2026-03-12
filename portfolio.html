@@ -43,6 +43,29 @@
         font-family: 'Zen Kaku Gothic New', sans-serif;
         font-weight: 900;
         letter-spacing: 0.05em;
+        color: #ffffff !important;
+      }
+
+      .lang-switch {
+        display: flex;
+        gap: 0.35rem;
+      }
+
+      .lang-btn {
+        border: 1px solid #6f5f35;
+        background: #151a1f;
+        color: #f3d779;
+        border-radius: 999px;
+        padding: 0.25rem 0.65rem;
+        font-size: 0.78rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .lang-btn.active {
+        background: linear-gradient(135deg, #ffc107, #d39500);
+        color: #111;
+        border-color: #ffc107;
       }
 
       .brand-logo {
@@ -174,6 +197,15 @@
         text-align: center;
         padding: 1.2rem 0;
       }
+
+      @media (max-width: 991px) {
+        .nav-tools {
+          display: flex;
+          flex-direction: column;
+          gap: 0.55rem;
+          align-items: flex-end;
+        }
+      }
     </style>
   </head>
 
@@ -182,97 +214,28 @@
       <div class="container">
         <a class="navbar-brand" href="index.html">
           <img src="img/company_logo.png" alt="KowaKikai logo" class="brand-logo">
-          KowaKikai Workshop
+          <span id="brandTitle">KowaKikai Workshop</span>
         </a>
-        <a class="btn btn-outline-dark btn-sm" href="index.html#contact">ติดต่อทีมงาน</a>
+        <div class="nav-tools">
+          <div class="lang-switch" aria-label="language switcher">
+            <button type="button" class="lang-btn active" data-lang-btn="th">TH</button>
+            <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+            <button type="button" class="lang-btn" data-lang-btn="jp">JP</button>
+          </div>
+          <a class="btn btn-outline-dark btn-sm" id="contactBtn" href="index.html#contact">ติดต่อทีมงาน</a>
+        </div>
       </div>
     </nav>
 
     <main class="container pb-4">
       <section class="page-hero reveal-up">
-        <span class="tag">PORTFOLIO</span>
-        <h1>ผลงานและประวัติการทำงาน</h1>
-        <p>คลิกที่รูปเพื่อดูภาพขนาดใหญ่ใน Modal เหมาะสำหรับใช้พรีเซนต์งานให้ลูกค้า</p>
+        <span class="tag" id="portfolioTag">PORTFOLIO</span>
+        <h1 id="portfolioTitle">ผลงานและประวัติการทำงาน</h1>
+        <p id="portfolioSubtitle">คลิกที่รูปเพื่อดูภาพขนาดใหญ่ใน Modal เหมาะสำหรับใช้พรีเซนต์งานให้ลูกค้า</p>
       </section>
 
       <section class="mt-4">
-        <div class="row g-3">
-          <div class="col-md-6 col-lg-4">
-            <article class="work-card reveal-up">
-              <img
-                src="img/Banner1.jpg"
-                alt="งานติดตั้งเครื่องจักร"
-                class="work-image"
-                data-bs-toggle="modal"
-                data-bs-target="#imageModal"
-                data-title="โครงการติดตั้งเครื่องจักร"
-                data-desc="ติดตั้งระบบเครื่องจักรพร้อมตั้งศูนย์และทดสอบการทำงาน"
-                data-full="img/Banner1.jpg"
-              >
-              <div class="work-content">
-                <div class="work-title">โครงการติดตั้งเครื่องจักร</div>
-                <p class="work-desc">ดำเนินงานติดตั้งครบวงจร พร้อมส่งมอบตามมาตรฐานความปลอดภัย</p>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <article class="work-card reveal-up">
-              <img
-                src="img/Banner2.jpg"
-                alt="งานขนย้ายเครื่องจักร"
-                class="work-image"
-                data-bs-toggle="modal"
-                data-bs-target="#imageModal"
-                data-title="โครงการขนย้ายไลน์ผลิต"
-                data-desc="ย้ายไลน์ผลิตภายในเวลาที่จำกัดและควบคุมความเสียหายเป็นศูนย์"
-                data-full="img/Banner2.jpg"
-              >
-              <div class="work-content">
-                <div class="work-title">โครงการขนย้ายไลน์ผลิต</div>
-                <p class="work-desc">วางแผนลำดับงานอย่างเป็นระบบ ลดผลกระทบต่อสายการผลิต</p>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <article class="work-card reveal-up">
-              <img
-                src="img/Banner3.jpg"
-                alt="งานบำรุงรักษา"
-                class="work-image"
-                data-bs-toggle="modal"
-                data-bs-target="#imageModal"
-                data-title="โครงการบำรุงรักษาเชิงป้องกัน"
-                data-desc="ติดตามสภาพเครื่องจักรตามแผน PM และลด Downtime ได้ต่อเนื่อง"
-                data-full="img/Banner3.jpg"
-              >
-              <div class="work-content">
-                <div class="work-title">โครงการบำรุงรักษาเชิงป้องกัน</div>
-                <p class="work-desc">ยกระดับประสิทธิภาพการผลิตด้วยแผนบำรุงรักษารายปี</p>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-md-6 col-lg-4">
-            <article class="work-card reveal-up">
-              <img
-                src="img/company_logo.png"
-                alt="โลโก้บริษัท"
-                class="work-image"
-                data-bs-toggle="modal"
-                data-bs-target="#imageModal"
-                data-title="Corporate Identity"
-                data-desc="โลโก้บริษัทสำหรับงานนำเสนอแบรนด์"
-                data-full="img/company_logo.png"
-              >
-              <div class="work-content">
-                <div class="work-title">Corporate Identity</div>
-                <p class="work-desc">ภาพโลโก้บริษัทที่นำไปใช้ในงานเอกสารและการนำเสนอ</p>
-              </div>
-            </article>
-          </div>
-        </div>
+        <div id="portfolioGrid" class="row g-3"></div>
       </section>
     </main>
 
@@ -292,15 +255,252 @@
     </div>
 
     <footer>
-      <p class="mb-0">KowaKikai Workshop | Portfolio Gallery | 2026</p>
+      <p class="mb-0" id="footerText">KowaKikai Workshop | Portfolio Gallery | 2026</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      const allWorkImages = [
+        '087fd206-6a2f-4e39-92b7-8d6a0cf20f59.jfif',
+        '1895a892-7e86-4025-8a66-950a283723ac.jfif',
+        '18f3fbe5-b74a-4157-be7a-05d3d2bbe8b7.jfif',
+        '194d05f2-29c7-4b02-83f8-5324639f5575.jfif',
+        '1ab3662b-7565-4e97-99a1-ecc47449584d.jfif',
+        '1f7bee01-e186-4ed4-a8d6-6107641a94e8.jfif',
+        '1ff758e7-7565-4b62-ab0d-21111fadca71.jfif',
+        '233185da-54e4-49e2-a767-ed0f4ea47f30.jfif',
+        '2544b4c6-56c3-4171-b86a-6dc1d10951cb.jfif',
+        '349a1724-facc-4e30-91c4-888488cf7d0e.jfif',
+        '41c70292-a11a-4f9a-b4c5-52c7e304851a.jfif',
+        '45a789b8-0a43-4944-a12e-0701c42e18f5.jfif',
+        '4e3cd5c7-b4f2-408a-b017-dde7d4827182.jfif',
+        '4f4a90f1-f156-499d-aaba-210ea33007de.jfif',
+        '52c5e618-545c-488f-a07a-72c50031cc2d.jfif',
+        '53e4e1d2-1fcd-4bfc-aa2f-f54faf94ad0a.jfif',
+        '56e93241-cf1f-4446-9b18-d0e392221e93.jfif',
+        '67a72f41-0087-481d-b5ca-c4d8cd61af76.jfif',
+        '69c9932e-71f1-4b29-a0fb-a0b87f4057c2.jfif',
+        '6b9171a4-909e-4905-8818-859286e44981.jfif',
+        '7092d277-7769-4ad1-93d4-c16ef810bfd1.jfif',
+        '8c26394d-79da-4427-9322-3f2337898ba6.jfif',
+        '90bf29a0-39b4-42e0-9224-80633b4db458.jfif',
+        '92b01957-f9f8-4eb0-aa73-bc8d87f287a0.jfif',
+        'a397994a-6708-4e09-8c9b-5f835cef45e1.jfif',
+        'b41ca1d8-073d-4e41-a213-91ab09944478.jfif',
+        'c57d9df9-e362-473a-9d32-964910bf29bf.jfif',
+        'c8149d50-cb40-42fc-9294-65a68af50e65.jfif',
+        'c8bdb51d-9b23-4ce7-aff0-199cd8ab6757.jfif',
+        'cb6b00c0-5c25-4941-ac2d-70f015b4b71e.jfif',
+        'db5fe2ed-ffeb-46c8-a6f5-4c453e74e66c.jfif',
+        'e204ea62-1ae3-40b4-b18a-3ee35f30c6bb.jfif',
+        'e8d91a60-6b21-4cd9-82c6-68b96a6df967.jfif',
+        'ea8355e9-b4a1-4894-aea1-fac880c2f7e5.jfif',
+        'f97bf3da-dd23-44c5-bf87-96ebf9689e86.jfif',
+        'Banner1.jpg',
+        'Banner2.jpg',
+        'Banner3.jpg'
+      ];
+
+      const pageText = {
+        th: {
+          brandTitle: 'KowaKikai Workshop',
+          contactBtn: 'ติดต่อทีมงาน',
+          portfolioTag: 'PORTFOLIO',
+          portfolioTitle: 'ผลงานและประวัติการทำงาน',
+          portfolioSubtitle: 'คลิกที่รูปเพื่อดูภาพขนาดใหญ่ใน Modal เหมาะสำหรับใช้พรีเซนต์งานให้ลูกค้า',
+          imageModalTitle: 'ภาพผลงาน',
+          imageModalAlt: 'ภาพผลงานขนาดใหญ่',
+          footerText: 'KowaKikai Workshop | Portfolio Gallery | 2026',
+          workAltPrefix: 'ภาพผลงาน',
+          modalDefault: 'ภาพผลงาน'
+        },
+        en: {
+          brandTitle: 'KowaKikai Workshop',
+          contactBtn: 'Contact Team',
+          portfolioTag: 'PORTFOLIO',
+          portfolioTitle: 'Work Gallery and Project History',
+          portfolioSubtitle: 'Click any image to open a large modal preview for client presentation.',
+          imageModalTitle: 'Work Image',
+          imageModalAlt: 'Large work image',
+          footerText: 'KowaKikai Workshop | Portfolio Gallery | 2026',
+          workAltPrefix: 'Work image',
+          modalDefault: 'Work Image'
+        },
+        jp: {
+          brandTitle: 'KowaKikai Workshop',
+          contactBtn: 'お問い合わせ',
+          portfolioTag: 'PORTFOLIO',
+          portfolioTitle: '実績ギャラリーとプロジェクト履歴',
+          portfolioSubtitle: '画像をクリックすると大型モーダルで表示され、顧客向けプレゼンに活用できます。',
+          imageModalTitle: '実績画像',
+          imageModalAlt: '拡大実績画像',
+          footerText: 'KowaKikai Workshop | Portfolio Gallery | 2026',
+          workAltPrefix: '実績画像',
+          modalDefault: '実績画像'
+        }
+      };
+
+      const workText = {
+        th: {
+          specialWorks: {
+            'Banner1.jpg': {
+              title: 'งาน Overhaul เครื่องจักรหลัก',
+              desc: 'ตรวจสภาพเครื่องหลัก เปลี่ยนอะไหล่สึกหรอ และปรับจุดวิกฤตให้พร้อมเดินเครื่องต่อเนื่อง'
+            },
+            'Banner2.jpg': {
+              title: 'งานย้ายและติดตั้งไลน์ผลิต',
+              desc: 'วางแผนยกเครื่องจักรและติดตั้งใหม่ทั้งไลน์ โดยควบคุมเวลาและความปลอดภัยหน้างาน'
+            },
+            'Banner3.jpg': {
+              title: 'งาน PM หน้างานโรงงาน',
+              desc: 'เข้าตรวจเช็ก Preventive Maintenance ตามรอบ ช่วยลดปัญหาเครื่องหยุดฉุกเฉิน'
+            }
+          },
+          defaults: [
+            { title: 'งานติดตั้งฐานเครื่อง', desc: 'เซ็ตแนวฐานเครื่องและตรวจระดับก่อนเริ่มเดินระบบจริง' },
+            { title: 'งาน Alignment เพลาขับ', desc: 'ปรับศูนย์แนวเพลาและคัปปลิ้ง ลดการสั่นและลดการสึกหรอระยะยาว' },
+            { title: 'งานระบบไฟเครื่องจักร', desc: 'จัดการสายไฟและตู้ควบคุม พร้อมตรวจความปลอดภัยก่อนส่งมอบ' },
+            { title: 'งานเคลื่อนย้ายภายในโรงงาน', desc: 'วางแผนเส้นทางย้ายเครื่องเพื่อไม่กระทบการผลิตในพื้นที่' },
+            { title: 'งานตรวจเช็กก่อน Start-up', desc: 'ทดสอบจุดสำคัญก่อนเริ่มเดินเครื่อง เพื่อให้ระบบทำงานเสถียร' },
+            { title: 'งานซ่อมบำรุงเชิงป้องกัน', desc: 'บำรุงรักษาตามแผนเพื่อยืดอายุการใช้งานและลด Downtime' }
+          ]
+        },
+        en: {
+          specialWorks: {
+            'Banner1.jpg': {
+              title: 'Main Machine Overhaul',
+              desc: 'Condition check, worn-part replacement, and critical point adjustment for stable continuous production.'
+            },
+            'Banner2.jpg': {
+              title: 'Line Relocation and Installation',
+              desc: 'Full line lifting and reinstallation plan with strict schedule and safety control.'
+            },
+            'Banner3.jpg': {
+              title: 'On-site PM Execution',
+              desc: 'Periodic preventive maintenance to reduce unplanned machine stoppage.'
+            }
+          },
+          defaults: [
+            { title: 'Machine Foundation Setup', desc: 'Set machine base alignment and level before full operation startup.' },
+            { title: 'Drive Shaft Alignment', desc: 'Align shafts and couplings to reduce vibration and long-term wear.' },
+            { title: 'Machine Electrical Work', desc: 'Prepare wiring and control panels with safety checks before handover.' },
+            { title: 'In-plant Machine Relocation', desc: 'Plan movement routes to minimize impact on active production areas.' },
+            { title: 'Pre Start-up Inspection', desc: 'Test critical points before startup for stable system performance.' },
+            { title: 'Preventive Maintenance Work', desc: 'Planned maintenance program to extend machine life and lower downtime.' }
+          ]
+        },
+        jp: {
+          specialWorks: {
+            'Banner1.jpg': {
+              title: '主要設備オーバーホール',
+              desc: '主要設備の状態確認、摩耗部品交換、重要ポイント調整を実施し、安定稼働を確保。'
+            },
+            'Banner2.jpg': {
+              title: 'ライン移設・据付工事',
+              desc: '工程と安全を管理しながら、生産ラインの移設と再据付を一括対応。'
+            },
+            'Banner3.jpg': {
+              title: '現場PM作業',
+              desc: '定期的な予防保全を実施し、突発停止リスクを低減。'
+            }
+          },
+          defaults: [
+            { title: '機械ベース据付', desc: '本稼働前にベース芯出しとレベル調整を実施。' },
+            { title: '駆動軸アライメント', desc: '軸とカップリングを調整し、振動と摩耗を抑制。' },
+            { title: '電装・制御作業', desc: '配線と制御盤を整備し、引渡し前に安全確認を実施。' },
+            { title: '工場内設備移動', desc: '稼働中ラインへの影響を抑える搬送ルートを計画。' },
+            { title: '起動前点検', desc: '起動前に重要ポイントを確認し、安定運転を確保。' },
+            { title: '予防保全作業', desc: '計画保全で設備寿命を延ばし、ダウンタイムを削減。' }
+          ]
+        }
+      };
+
+      const grid = document.getElementById('portfolioGrid');
       const modal = document.getElementById('imageModal');
       const modalTitle = document.getElementById('imageModalTitle');
       const modalImage = document.getElementById('imageModalSource');
       const modalDesc = document.getElementById('imageModalDesc');
+      let currentLang = 'th';
+      let observer;
+
+      function applyPageText(lang) {
+        const pack = pageText[lang] || pageText.th;
+        Object.keys(pack).forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.textContent = pack[id];
+          }
+        });
+
+        modalImage.alt = pack.imageModalAlt;
+
+        document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+          btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+        });
+      }
+
+      function renderPortfolio(lang) {
+        const pack = pageText[lang] || pageText.th;
+        const storyPack = workText[lang] || workText.th;
+        grid.innerHTML = '';
+
+        allWorkImages.forEach((filename, index) => {
+          const story = storyPack.specialWorks[filename] || storyPack.defaults[index % storyPack.defaults.length];
+          const col = document.createElement('div');
+          col.className = 'col-md-6 col-lg-4';
+          col.innerHTML = `
+            <article class="work-card reveal-up">
+              <img
+                src="img/${filename}"
+                alt="${pack.workAltPrefix} ${index + 1}"
+                class="work-image"
+                loading="lazy"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal"
+                data-title="${story.title}"
+                data-desc="${story.desc}"
+                data-full="img/${filename}"
+              >
+              <div class="work-content">
+                <div class="work-title">${story.title}</div>
+                <p class="work-desc">${story.desc}</p>
+              </div>
+            </article>
+          `;
+          grid.appendChild(col);
+        });
+
+        setupRevealObserver();
+      }
+
+      function setupRevealObserver() {
+        if (observer) {
+          observer.disconnect();
+        }
+
+        observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.14,
+            rootMargin: '0px 0px -30px 0px'
+          }
+        );
+
+        document.querySelectorAll('.reveal-up').forEach((item) => observer.observe(item));
+      }
+
+      function applyLanguage(lang) {
+        currentLang = lang;
+        applyPageText(lang);
+        renderPortfolio(lang);
+      }
 
       modal.addEventListener('show.bs.modal', (event) => {
         const trigger = event.relatedTarget;
@@ -308,28 +508,19 @@
           return;
         }
 
-        modalTitle.textContent = trigger.getAttribute('data-title') || 'ภาพผลงาน';
+        const pagePack = pageText[currentLang] || pageText.th;
+        modalTitle.textContent = trigger.getAttribute('data-title') || pagePack.modalDefault;
         modalImage.src = trigger.getAttribute('data-full') || 'img/Banner1.jpg';
         modalDesc.textContent = trigger.getAttribute('data-desc') || '';
       });
 
-      const revealItems = document.querySelectorAll('.reveal-up');
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.14,
-          rootMargin: '0px 0px -30px 0px'
-        }
-      );
+      document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          applyLanguage(btn.getAttribute('data-lang-btn'));
+        });
+      });
 
-      revealItems.forEach((item) => observer.observe(item));
+      applyLanguage('th');
     </script>
   </body>
 </html>
