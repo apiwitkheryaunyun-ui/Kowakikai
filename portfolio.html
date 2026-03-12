@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KowaKikai Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #111315;
+        --ink: #f5f6f7;
+        --soft-ink: #b7bec8;
+        --paper: #1b1f24;
+        --line: #3a4049;
+        --brand: #ffc107;
+        --brand-dark: #d39500;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 15% 20%, rgba(255, 193, 7, 0.14), transparent 35%),
+          radial-gradient(circle at 82% 8%, rgba(255, 193, 7, 0.08), transparent 28%),
+          repeating-linear-gradient(0deg, transparent 0 34px, rgba(255, 255, 255, 0.025) 34px 35px),
+          var(--bg);
+        font-family: 'Noto Sans Thai', 'Zen Kaku Gothic New', sans-serif;
+      }
+
+      .navbar-custom {
+        background: rgba(17, 19, 22, 0.9);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-family: 'Zen Kaku Gothic New', sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+      }
+
+      .brand-logo {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid #7d6840;
+        box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.12);
+      }
+
+      .page-hero {
+        margin-top: 1.2rem;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 1.4rem;
+      }
+
+      .page-hero h1 {
+        margin: 0;
+        font-family: 'Zen Kaku Gothic New', sans-serif;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .page-hero p {
+        margin: 0.5rem 0 0;
+        color: var(--soft-ink);
+      }
+
+      .work-card {
+        background: #1d2228;
+        border: 1px solid #444b56;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.34);
+        height: 100%;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .work-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 26px rgba(255, 193, 7, 0.2);
+      }
+
+      .work-image {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .work-image:hover {
+        transform: scale(1.03);
+      }
+
+      .work-content {
+        padding: 1rem;
+      }
+
+      .work-title {
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+      }
+
+      .work-desc {
+        color: var(--soft-ink);
+        margin-bottom: 0;
+      }
+
+      .btn-outline-dark {
+        color: var(--brand);
+        border-color: var(--brand);
+        transition: transform 0.2s ease, background-color 0.2s ease;
+      }
+
+      .btn-outline-dark:hover {
+        color: #111;
+        background: var(--brand);
+        border-color: var(--brand);
+        transform: translateY(-2px);
+      }
+
+      .tag {
+        display: inline-block;
+        font-size: 0.74rem;
+        color: var(--brand);
+        border: 1px solid var(--brand);
+        border-radius: 999px;
+        padding: 0.2rem 0.6rem;
+        margin-bottom: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+      }
+
+      .modal-content {
+        border-radius: 16px;
+        background: #1c2026;
+        border: 1px solid #454d58;
+      }
+
+      .modal-title,
+      .btn-close {
+        color: #f0f2f4;
+      }
+
+      .modal-body img {
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .reveal-up {
+        opacity: 0;
+        transform: translateY(26px) scale(0.98);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .reveal-up.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      footer {
+        margin-top: 2rem;
+        border-top: 1px solid var(--line);
+        color: #aeb5bf;
+        text-align: center;
+        padding: 1.2rem 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="img/company_logo.png" alt="KowaKikai logo" class="brand-logo">
+          KowaKikai Workshop
+        </a>
+        <a class="btn btn-outline-dark btn-sm" href="index.html#contact">ติดต่อทีมงาน</a>
+      </div>
+    </nav>
+
+    <main class="container pb-4">
+      <section class="page-hero reveal-up">
+        <span class="tag">PORTFOLIO</span>
+        <h1>ผลงานและประวัติการทำงาน</h1>
+        <p>คลิกที่รูปเพื่อดูภาพขนาดใหญ่ใน Modal เหมาะสำหรับใช้พรีเซนต์งานให้ลูกค้า</p>
+      </section>
+
+      <section class="mt-4">
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-4">
+            <article class="work-card reveal-up">
+              <img
+                src="img/Banner1.jpg"
+                alt="งานติดตั้งเครื่องจักร"
+                class="work-image"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal"
+                data-title="โครงการติดตั้งเครื่องจักร"
+                data-desc="ติดตั้งระบบเครื่องจักรพร้อมตั้งศูนย์และทดสอบการทำงาน"
+                data-full="img/Banner1.jpg"
+              >
+              <div class="work-content">
+                <div class="work-title">โครงการติดตั้งเครื่องจักร</div>
+                <p class="work-desc">ดำเนินงานติดตั้งครบวงจร พร้อมส่งมอบตามมาตรฐานความปลอดภัย</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="work-card reveal-up">
+              <img
+                src="img/Banner2.jpg"
+                alt="งานขนย้ายเครื่องจักร"
+                class="work-image"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal"
+                data-title="โครงการขนย้ายไลน์ผลิต"
+                data-desc="ย้ายไลน์ผลิตภายในเวลาที่จำกัดและควบคุมความเสียหายเป็นศูนย์"
+                data-full="img/Banner2.jpg"
+              >
+              <div class="work-content">
+                <div class="work-title">โครงการขนย้ายไลน์ผลิต</div>
+                <p class="work-desc">วางแผนลำดับงานอย่างเป็นระบบ ลดผลกระทบต่อสายการผลิต</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="work-card reveal-up">
+              <img
+                src="img/Banner3.jpg"
+                alt="งานบำรุงรักษา"
+                class="work-image"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal"
+                data-title="โครงการบำรุงรักษาเชิงป้องกัน"
+                data-desc="ติดตามสภาพเครื่องจักรตามแผน PM และลด Downtime ได้ต่อเนื่อง"
+                data-full="img/Banner3.jpg"
+              >
+              <div class="work-content">
+                <div class="work-title">โครงการบำรุงรักษาเชิงป้องกัน</div>
+                <p class="work-desc">ยกระดับประสิทธิภาพการผลิตด้วยแผนบำรุงรักษารายปี</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <article class="work-card reveal-up">
+              <img
+                src="img/company_logo.png"
+                alt="โลโก้บริษัท"
+                class="work-image"
+                data-bs-toggle="modal"
+                data-bs-target="#imageModal"
+                data-title="Corporate Identity"
+                data-desc="โลโก้บริษัทสำหรับงานนำเสนอแบรนด์"
+                data-full="img/company_logo.png"
+              >
+              <div class="work-content">
+                <div class="work-title">Corporate Identity</div>
+                <p class="work-desc">ภาพโลโก้บริษัทที่นำไปใช้ในงานเอกสารและการนำเสนอ</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="imageModalTitle">ภาพผลงาน</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img id="imageModalSource" src="img/Banner1.jpg" alt="ภาพผลงานขนาดใหญ่">
+            <p id="imageModalDesc" class="text-secondary mt-3 mb-0"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p class="mb-0">KowaKikai Workshop | Portfolio Gallery | 2026</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const modal = document.getElementById('imageModal');
+      const modalTitle = document.getElementById('imageModalTitle');
+      const modalImage = document.getElementById('imageModalSource');
+      const modalDesc = document.getElementById('imageModalDesc');
+
+      modal.addEventListener('show.bs.modal', (event) => {
+        const trigger = event.relatedTarget;
+        if (!trigger) {
+          return;
+        }
+
+        modalTitle.textContent = trigger.getAttribute('data-title') || 'ภาพผลงาน';
+        modalImage.src = trigger.getAttribute('data-full') || 'img/Banner1.jpg';
+        modalDesc.textContent = trigger.getAttribute('data-desc') || '';
+      });
+
+      const revealItems = document.querySelectorAll('.reveal-up');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.14,
+          rootMargin: '0px 0px -30px 0px'
+        }
+      );
+
+      revealItems.forEach((item) => observer.observe(item));
+    </script>
+  </body>
+</html>
